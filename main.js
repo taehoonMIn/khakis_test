@@ -1,1 +1,97 @@
-// Add JS here
+const foods = [
+    { name: 'Pizza', image: 'https://source.unsplash.com/200x200/?pizza' },
+    { name: 'Burger', image: 'https://source.unsplash.com/200x200/?burger' },
+    { name: 'Taco', image: 'https://source.unsplash.com/200x200/?taco' },
+    { name: 'Sushi', image: 'https://source.unsplash.com/200x200/?sushi' },
+    { name: 'Pasta', image: 'https://source.unsplash.com/200x200/?pasta' },
+    { name: 'Fried Chicken', image: 'https://source.unsplash.com/200x200/?fried,chicken' },
+    { name: 'Ice Cream', image: 'https://source.unsplash.com/200x200/?ice,cream' },
+    { name: 'Ramen', image: 'https://source.unsplash.com/200x200/?ramen' },
+];
+
+let currentRoundFoods = [...foods];
+let winners = [];
+let round = 1;
+let currentMatchup = 0;
+
+const roundTitle = document.getElementById('round-title');
+const food1Container = document.getElementById('food-1');
+const food2Container = document.getElementById('food-2');
+const food1Image = food1Container.querySelector('img');
+const food1Name = food1Container.querySelector('h3');
+const food2Image = food2Container.querySelector('img');
+const food2Name = food2Container.querySelector('h3');
+const nextRoundBtn = document.getElementById('next-round-btn');
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function displayMatchup() {
+    if (currentMatchup * 2 >= currentRoundFoods.length) {
+        // End of the round
+        if (currentRoundFoods.length === 1) {
+            roundTitle.textContent = 'Winner!';
+            food1Container.style.display = 'none';
+            food2Container.style.display = 'none';
+            nextRoundBtn.style.display = 'none';
+
+            const winner = currentRoundFoods[0];
+            const winnerElement = document.createElement('div');
+            winnerElement.classList.add('food-item');
+            winnerElement.innerHTML = `<img src="${winner.image}" alt="${winner.name}"><h3>${winner.name} is the champion!</h3>`;
+            document.querySelector('main').insertBefore(winnerElement, nextRoundBtn);
+
+        } else {
+            nextRoundBtn.style.display = 'block';
+        }
+        return;
+    }
+
+    const food1 = currentRoundFoods[currentMatchup * 2];
+    const food2 = currentRoundFoods[currentMatchup * 2 + 1];
+
+    food1Image.src = food1.image;
+    food1Name.textContent = food1.name;
+    food1Image.alt = food1.name;
+
+    food2Image.src = food2.image;
+    food2Name.textContent = food2.name;
+    food2Image.alt = food2.name;
+}
+
+function selectFood(selectedFoodIndex) {
+    const winner = currentRoundFoods[currentMatchup * 2 + selectedFoodIndex];
+    winners.push(winner);
+    currentMatchup++;
+    displayMatchup();
+}
+
+food1Container.addEventListener('click', () => selectFood(0));
+food2Container.addEventListener('click', () => selectFood(1));
+
+nextRoundBtn.addEventListener('click', () => {
+    round++;
+    currentRoundFoods = [...winners];
+    winners = [];
+    currentMatchup = 0;
+    roundTitle.textContent = `Round ${round}`;
+    nextRoundBtn.style.display = 'none';
+    if (currentRoundFoods.length % 2 !== 0 && currentRoundFoods.length > 1){
+        const luckyWinner = currentRoundFoods.pop();
+        winners.push(luckyWinner);
+    }
+    if (currentRoundFoods.length === 1) {
+        displayMatchup();
+    } else {
+        shuffle(currentRoundFoods);
+        displayMatchup();
+    }
+});
+
+// Start the game
+shuffle(currentRoundFoods);
+displayMatchup();
