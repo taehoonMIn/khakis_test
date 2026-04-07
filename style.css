@@ -1,10 +1,29 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --border-color: #ccc;
+    --item-bg: #fff;
+    --button-bg: #333;
+    --button-text: #fff;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --border-color: #444;
+    --item-bg: #2a2a2a;
+    --button-bg: #f0f0f0;
+    --button-text: #1a1a1a;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header, main, footer {
@@ -22,16 +41,17 @@ header, main, footer {
 }
 
 .food-item {
-    border: 2px solid #ccc;
+    background-color: var(--item-bg);
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, border-color 0.2s, background-color 0.3s;
 }
 
 .food-item:hover {
     transform: scale(1.05);
-    border-color: #333;
+    border-color: var(--text-color);
 }
 
 .food-item img {
@@ -47,6 +67,20 @@ header, main, footer {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background-color: var(--item-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s;
 }
