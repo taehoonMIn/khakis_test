@@ -23,7 +23,7 @@ const foods = [
     { name: 'Sushi', image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=200&auto=format&fit=crop' },
     { name: 'Pasta', image: 'https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=200&auto=format&fit=crop' },
     { name: 'Fried Chicken', image: 'https://images.unsplash.com/photo-1562967914-608f134c609c?q=80&w=200&auto=format&fit=crop' },
-    { name: 'Ice Cream', image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Ice Cream', image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=200&auto=format&fit=crop' },
     { name: 'Ramen', image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=200&auto=format&fit=crop' },
 ];
 
