@@ -17,14 +17,14 @@ themeToggle.addEventListener('click', () => {
 });
 
 const foods = [
-    { name: 'Pizza', image: 'https://source.unsplash.com/200x200/?pizza' },
-    { name: 'Burger', image: 'https://source.unsplash.com/200x200/?burger' },
-    { name: 'Taco', image: 'https://source.unsplash.com/200x200/?taco' },
-    { name: 'Sushi', image: 'https://source.unsplash.com/200x200/?sushi' },
-    { name: 'Pasta', image: 'https://source.unsplash.com/200x200/?pasta' },
-    { name: 'Fried Chicken', image: 'https://source.unsplash.com/200x200/?fried,chicken' },
-    { name: 'Ice Cream', image: 'https://source.unsplash.com/200x200/?ice,cream' },
-    { name: 'Ramen', image: 'https://source.unsplash.com/200x200/?ramen' },
+    { name: 'Pizza', image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Burger', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Taco', image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Sushi', image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Pasta', image: 'https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Fried Chicken', image: 'https://images.unsplash.com/photo-1562967914-608f134c609c?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Ice Cream', image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=200&auto=format&fit=crop' },
+    { name: 'Ramen', image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=200&auto=format&fit=crop' },
 ];
 
 let currentRoundFoods = [...foods];
